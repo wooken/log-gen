@@ -1,1 +1,1 @@
-# log-gen
+# MPT Log Generator
