@@ -1,5 +1,5 @@
-import "package:test/test.dart";
-import '../calc.dart';  
+import 'package:test/test.dart';
+import '../lib/calc.dart';
 
 main() {  
     group("isSetData()", () {
