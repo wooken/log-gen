@@ -10,8 +10,9 @@ void main() {
 }
 
 void displayResults(Event e) {
-    //var value = querySelector('#input').value;
     var input = querySelector('#input') as TextAreaElement;
     print(input.value);
-    querySelector('#results').text = input.value;
+    var L = new Loggen(input.value);
+    var log = L.Log();
+    querySelector('#results').text = log;
 }

@@ -3,11 +3,14 @@ dependencies:
     test: any
     html: any
     polymer: any
+    collection: any
 transformers:
 - polymer:
     entry_points:
     - web/log.html
 - $dart2js:
-    verbose: true
-    minify: true
     checked: true
+    minify: true
+    terse: true
+    verbose: true
+    commandLineOptions: [--show-package-warnings]
