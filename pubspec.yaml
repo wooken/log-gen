@@ -7,7 +7,7 @@ dependencies:
 transformers:
 - polymer:
     entry_points:
-    - web/log.html
+    - web/index.html
 - $dart2js:
     checked: true
     minify: true
