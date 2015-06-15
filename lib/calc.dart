@@ -51,6 +51,7 @@ class Loggen {
 
     Loggen(String input) {
         List<String> parsed;
+        input = input.replaceAll(new RegExp(r"[\n]+"), "\n");
         parsed = input.split(newline);
         for (int i = 0; i < parsed.length; i++) {
             if (isExerciseData(parsed[i])) {

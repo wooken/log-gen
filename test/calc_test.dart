@@ -49,6 +49,12 @@ main() {
             expect(L.exerList[0].data.length, equals(2));
             expect(L.exerList[1].data.length, equals(3));
         });
+        test("constructor() init extra newline whitespace", () {
+            var L = new Loggen("A. Push Press\n\n\n5x5 @95\n\n5x5 @95\nB. Squat\n3x3 @135\n2x2 @155\n1x1 @185");
+            expect(L.exerList.length, equals(2));
+            expect(L.exerList[0].data.length, equals(2));
+            expect(L.exerList[1].data.length, equals(3));
+        });
     });
 
     group("isExerciseData()", () {
