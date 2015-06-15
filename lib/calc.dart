@@ -54,6 +54,7 @@ class Loggen {
         input = input.replaceAll(new RegExp(r"[\n]+"), "\n");
         parsed = input.split(newline);
         for (int i = 0; i < parsed.length; i++) {
+            // TODO: fix extra whitespace here
             if (isExerciseData(parsed[i])) {
                 var e = new Exer(parsed[i]);
                 int j = i + 1;
@@ -98,11 +99,13 @@ class Loggen {
 
 bool isExerciseData(String s) {
     RegExp ExerciseData = new RegExp(r"^[A-Z0-9]+\.\s[A-Za-z\s]+$");
+    s = s.trim();
     return ExerciseData.hasMatch(s);
 }
 
 bool isSetData(String s) {
 	RegExp SetData = new RegExp(r"^([ivx]+\.\s)?[0-9]+x[0-9]+\s@[0-9]+$");
+    s = s.trim();
     return SetData.hasMatch(s);
 }
 
