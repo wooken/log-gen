@@ -13,7 +13,7 @@ class Exer {
     }
 
     void addData(String input) {
-        this.data.add(input);
+        this.data.add(input.trim());
         List<int> v = _extractIntegers(input);
         this.tonnage = this.tonnage + _calcTonnage(v);
     }
@@ -99,13 +99,11 @@ class Loggen {
 
 bool isExerciseData(String s) {
     RegExp ExerciseData = new RegExp(r"^[A-Z0-9]+\.\s[A-Za-z\s]+$");
-    s = s.trim();
     return ExerciseData.hasMatch(s);
 }
 
 bool isSetData(String s) {
 	RegExp SetData = new RegExp(r"^([ivx]+\.\s)?[0-9]+x[0-9]+\s@[0-9]+$");
-    s = s.trim();
     return SetData.hasMatch(s);
 }
 
