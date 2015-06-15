@@ -73,7 +73,7 @@ class Loggen {
         for (int i = 0; i < this.exerList.length; i++) {
             output = output + this.exerList[i].name + newline;
             for (int j = 0; j < this.exerList[i].data.length; j++) {
-                output = output + tab + this.exerList[i].data[j] + newline;
+                output = output + tab + this.exerList[i].data[j].replaceAll(new RegExp(r"^[MDCLXVImdclxvi]*\.\s"), "") + newline;
             }
         }
         // Print tonnage
