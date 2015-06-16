@@ -54,12 +54,11 @@ class Loggen {
         input = input.replaceAll(new RegExp(r"[\n]+"), "\n");
         parsed = input.split(newline);
         for (int i = 0; i < parsed.length; i++) {
-            // TODO: fix extra whitespace here
-            if (isExerciseData(parsed[i])) {
-                var e = new Exer(parsed[i]);
+            if (isExerciseData(parsed[i].trim())) {
+                var e = new Exer(parsed[i].trim());
                 int j = i + 1;
-                while (j < parsed.length && isSetData(parsed[j])) {
-                    e.addData(parsed[j]);
+                while (j < parsed.length && isSetData(parsed[j].trim())) {
+                    e.addData(parsed[j].trim());
                     j++;
                 }
                 this.exerList.add(e);
