@@ -3,11 +3,6 @@ import '../lib/calc.dart';
 
 main() {
     group("[Exer]" , () {
-        test("Print()", () {
-            var L = new Loggen("A. Push Press\n5x5 @95\n3x3 @125\nB. Squat\n5x5 @95\n3x3 @125");
-            var log = L.Log();
-            print(log);
-        });
         test("constructor() sets name", () {
             var e = new Exer("A. Push Press");
             expect(e.name, equals("A. Push Press"));
@@ -60,6 +55,12 @@ main() {
             expect(L.exerList.length, equals(2));
             expect(L.exerList[0].data.length, equals(2));
             expect(L.exerList[1].data.length, equals(3));
+        });
+        test("constructor() init variable whitespace", () {
+            var L = new Loggen("A. Power Clean\n\n i. 1x5 @105 \n\n 6x3 @115 \n\n 1x5 @105 \n\n C. Squat\n\n i. 1x5 @175 \n\n 2x2 @195 \n\n 1x5 @195 \n\n 2x5 @175 \n\n 1x5 @195 \n\n 2x3 @175");
+            expect(L.exerList.length, equals(2));
+            expect(L.exerList[0].data.length, equals(3));
+            expect(L.exerList[1].data.length, equals(6));
         });
     });
 
