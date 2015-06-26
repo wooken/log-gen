@@ -26,6 +26,12 @@ main() {
             expect(e.data.length, equals(3));
             expect(e.tonnage, equals(7125));
         });
+        test("addData() ignores whitespace in data", () {
+            var e = new Exer("A. Push Press");
+            e.addData("5x5@95");
+            expect(e.data.length, equals(1));
+            expect(e.tonnage, equals(2375));
+        });
     });
 
     group("[Loggen]", () {
@@ -86,6 +92,10 @@ main() {
         });
         test("accepts data without roman numerals", () {
             String data = "4x5 @95";
+            expect(isSetData(data), true);
+        });
+        test("ignores all whitespace (sanely)", () {
+            String data = "4 x5@ 95";
             expect(isSetData(data), true);
         });
     });
