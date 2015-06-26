@@ -27,18 +27,24 @@ class Exer {
     }
 
     List<int> _extractIntegers(String s) {
+        RegExp repsIdent = new RegExp(r"x");
+        RegExp weightIdent = new RegExp(r"@");
         List<int> v = new List(3);
         List<String> t = splitOnWhitespace(s);
+        String u = "";
         for (int i = 0; i < t.length; i++) {
-            RegExp repsIdent = new RegExp(r"x");
-            RegExp weightIdent = new RegExp(r"@");
-            if (repsIdent.hasMatch(t[i])) {
-                List<String> s = t[i].split(repsIdent);
+            if (repsIdent.hasMatch(t[i]) || weightIdent.hasMatch(t[i])) {
+                u = u + t[i];
+            }
+        }
+        List<String> w = u.split(weightIdent);
+        for (int i = 0; i < w.length; i++) {
+            if (repsIdent.hasMatch(w[i])) {
+                List<String> s = w[i].split(repsIdent);
                 v[0] = int.parse(s[0]);
                 v[1] = int.parse(s[1]);
-            } else if (weightIdent.hasMatch(t[i])) {
-                List<String> s = t[i].split(weightIdent);
-                v[2] = int.parse(s[1]);
+            } else if (new RegExp(r"^[0-9]+").hasMatch(w[i])) {
+                v[2] = int.parse(w[i]);
             }
         }
         return v;
@@ -102,11 +108,16 @@ bool isExerciseData(String s) {
 }
 
 bool isSetData(String s) {
-	RegExp SetData = new RegExp(r"^([ivx]+\.\s)?[0-9]+x[0-9]+\s@[0-9]+$");
+	RegExp SetData = new RegExp(r"^([ivx]+\.\s*)?[0-9]+\s*x\s*[0-9]+\s*@\s*[0-9]+$");
     return SetData.hasMatch(s);
 }
 
 List<String> splitOnWhitespace(String s) {
     RegExp SplitSetDataRegExp = new RegExp(r"\s");
     return s.split(SplitSetDataRegExp);
+}
+
+List<String> splitOn(String symbol, String s) {
+    RegExp symbolRegExp = new RegExp(symbol);
+    return s.split(symbolRegExp);
 }
