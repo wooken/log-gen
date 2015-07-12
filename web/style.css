@@ -25,3 +25,10 @@ textarea.glow:focus{
     -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
+
+pre {
+    display: block;
+    font-family: georgia;
+    white-space: pre;
+    margin: 1em 0;
+}

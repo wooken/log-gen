@@ -9,14 +9,74 @@
     <p> Paste workout here and hit the Generate button. </p>
     <div>
         <textarea class="glow" type="text" id="input" rows="20" cols="50"></textarea>
+        <textarea class="glow" type="text" id="results" rows="20" cols="50"></textarea>
     </div>
     <div>
         <button id="generateButton">Generate</button>
     </div>
     <div>
-        <textarea class="glow" type="text" id="results" rows="20" cols="50"></textarea>
+        <h2>Restrictions</h2>
+        <ul>
+            <li>
+                Exercise titles must start with a capital letter, followed by an optional number
+            </li>
+            <li>
+                Sets and reps must be listed in the form (with optional spaces): 3x3@135
+            </li>
+        </ul>
+        <h2>Example</h2>
+        <h3>Input:</h3>
+        <pre>
+        A1. Push Press
+        2x2 @95
+        3x3 @105
+        5x3 @115
+        4x4 @105
+        B1. Squat
+        3x3 @165
+        1x1 @225
+        1x1 @195
+        1x1 @225
+        1x1 @195
+        1x1 @225
+        3x3 @165
+        C1. Deadlift
+        1x3 @195
+        1x2 @225
+        1x1 @265
+        1x3 @225
+        2x3 @225
+        </pre>
+        <h3>Output:</h3>
+        <pre>
+        A1. Push Press
+            2x2 @95
+            3x3 @105
+            5x3 @115
+            4x4 @105
+        B1. Squat
+            3x3 @165
+            1x1 @225
+            1x1 @195
+            1x1 @225
+            1x1 @195
+            1x1 @225
+            3x3 @165
+        C1. Deadlift
+            1x3 @195
+            1x2 @225
+            1x1 @265
+            1x3 @225
+            2x3 @225
+
+        Tonnage:
+        Push Press: 4730
+        Squat: 4035
+        Deadlift: 3325
+        total: 12090
+        </pre>
     </div>
     <script type="application/dart" src="main.dart"></script>
-    Please send suggestions and issues to <a href="mailto:kenny@kenwoo.io">kenny@kenwoo.io</a>
+    <p>Please send suggestions and issues to <a href="mailto:kenny@kenwoo.io">kenny@kenwoo.io</a></p>
 </body>
 </html>
