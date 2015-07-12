@@ -103,7 +103,7 @@ class Loggen {
 }
 
 bool isExerciseData(String s) {
-    RegExp ExerciseData = new RegExp(r"^[A-Z0-9]+\.\s[A-Za-z\s]+$");
+    RegExp ExerciseData = new RegExp(r"^[A-Z0-9]+\.\s*.+$");
     return ExerciseData.hasMatch(s);
 }
 

@@ -79,6 +79,10 @@ main() {
             String data = "4x5 @95";
             expect(isExerciseData(data), false);
         });
+        test("accepts special characters", () {
+            String name = "A. Push Press ([{-:!@#\$%^&*()+";
+            expect(isExerciseData(name), true);
+        });
     });
 
     group("isSetData()", () {
