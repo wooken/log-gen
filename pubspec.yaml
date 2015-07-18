@@ -2,12 +2,8 @@ name: loggen
 dependencies:
     test: any
     html: any
-    polymer: any
     collection: any
 transformers:
-- polymer:
-    entry_points:
-    - web/index.html
 - $dart2js:
     checked: true
     minify: true

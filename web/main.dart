@@ -1,5 +1,4 @@
 import 'dart:html';
-import 'package:polymer/polymer.dart';
 import 'package:loggen/calc.dart';
 
 ButtonElement genButton;
