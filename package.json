@@ -1,0 +1,22 @@
+{
+  "name": "mptlog",
+  "version": "1.0.0",
+  "description": "Moreira Performance Training Log Entry Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wooken/mptlog.git"
+  },
+  "author": "Kenny Woo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wooken/mptlog/issues"
+  },
+  "homepage": "https://github.com/wooken/mptlog#readme",
+  "dependencies": {
+    "mocha": "^2.3.4"
+  }
+}
