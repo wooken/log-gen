@@ -7,4 +7,7 @@ module.exports = {
     "node": true,
     "mocha": true,
   },
+  "rules": {
+    "strict": "global",
+  }
 };
