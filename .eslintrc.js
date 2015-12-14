@@ -1,13 +1,10 @@
 module.exports = {
-  "extends": "standard",
-  "plugins": [
-    "standard"
-  ],
-  "env": {
-    "node": true,
-    "mocha": true,
-  },
-  "rules": {
-    "semi": [2, "always"],
-  },
+    "extends": "airbnb",
+    "plugins": [
+        "react"
+    ],
+    "env": {
+        "node": true,
+        "mocha": true,
+    },
 };
