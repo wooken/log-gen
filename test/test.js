@@ -18,26 +18,28 @@ describe('Exer', function () {
   });
   describe('Exer.addData()', function () {
     it('addData() sets data/tonnage', function () {
-      var exercise = new Exer("A. Push Press");
+      var exercise = new Exer('A. Push Press');
       exercise.addData('5x5 @95');
       assert.lengthOf(exercise.data, 1);
-      assert.equal(exercise.data[0], '5x5 @95');
-      assert.equal(exercise.tonnage, 5*5*95);
+      assert.equal(exercise.data[0], '5x5@95');
+      assert.equal(exercise.tonnage, 5 * 5 * 95);
     });
-    it("sets multiple data/tonnage", function () {
-      var exercise = new Exer("A. Push Press");
-      exercise.addData("5x5 @95");
-      exercise.addData("5x5 @95");
-      exercise.addData("5x5 @95");
+    it('sets multiple data/tonnage', function () {
+      var exercise = new Exer('A. Push Press');
+      exercise.addData('5x5@95');
+      exercise.addData('5x5@95');
+      exercise.addData('5x5@95');
       assert.lengthOf(exercise.data, 3);
-      assert.equal(exercise.tonnage, 5*5*95*3);
+      assert.equal(exercise.tonnage, 5 * 5 * 95 * 3);
     });
-    it("ignores whitespace in data", function () {
-      var exercise = new Exer("A. Push Press");
-      exercise.addData("5x5@95");
-      exercise.addData("5 x 5 @ 95");
+    it('ignores whitespace in data', function () {
+      var exercise = new Exer('A. Push Press');
+      exercise.addData('5x5@95');
+      exercise.addData(' 5 x 5 @ 95 ');
       assert.lengthOf(exercise.data, 2);
-      assert.equal(exercise.tonnage, 5*5*95*2);
+      assert.equal(exercise.data[0], '5x5@95');
+      assert.equal(exercise.data[1], '5x5@95');
+      assert.equal(exercise.tonnage, 5 * 5 * 95 * 2);
     });
   });
 });
