@@ -7,10 +7,7 @@ module.exports = {
     'node': true,
     'mocha': true,
   },
-  'ecmaFeatures': {
-    'modules': true,
-  },
   'rules': {
-    'strict': [2, 'global'],
+    'strict': 0,
   },
 };
