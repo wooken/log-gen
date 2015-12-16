@@ -17,7 +17,7 @@ describe('Exer', function () {
     });
   });
   describe('Exer.addData()', function () {
-    it('addData() sets data/tonnage', function () {
+    it('sets data/tonnage', function () {
       const exercise = new Exer('A. Push Press');
       exercise.addData('5x5@95');
       assert.lengthOf(exercise.data, 1);
