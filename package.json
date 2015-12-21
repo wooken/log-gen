@@ -1,27 +1,27 @@
 {
-  "name": "mptlog",
-  "version": "1.0.0",
-  "description": "Moreira Performance Training Log Entry Generator",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha --reporter spec"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wooken/mptlog.git"
-  },
-  "author": "Kenny Woo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wooken/mptlog/issues"
-  },
-  "homepage": "https://github.com/wooken/mptlog#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "chai": "^3.4.1",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0",
-    "eslint-plugin-react": "^3.11.3",
-    "mocha": "^2.3.4"
-  }
+    "name": "mptlog",
+    "version": "1.0.0",
+    "description": "Moreira Performance Training Log Entry Generator",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha --reporter dot"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wooken/mptlog.git"
+    },
+    "author": "Kenny Woo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wooken/mptlog/issues"
+    },
+    "homepage": "https://github.com/wooken/mptlog#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "chai": "^3.4.1",
+        "eslint": "^1.10.3",
+        "eslint-config-airbnb": "^2.0.0",
+        "eslint-plugin-react": "^3.11.3",
+        "mocha": "^2.3.4"
+    }
 }
