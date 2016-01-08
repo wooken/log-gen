@@ -22,6 +22,9 @@
         "mocha": "^2.3.4"
     },
     "standard": {
-        "globals": [ "describe", "it" ]
+        "globals": [
+            "describe",
+            "it"
+        ]
     }
 }
