@@ -19,9 +19,9 @@
     "dependencies": {},
     "devDependencies": {
         "chai": "^3.4.1",
-        "eslint": "^1.10.3",
-        "eslint-config-airbnb": "^2.0.0",
-        "eslint-plugin-react": "^3.11.3",
         "mocha": "^2.3.4"
+    },
+    "standard": {
+        "globals": [ "describe", "it" ]
     }
 }
