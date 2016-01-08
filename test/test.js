@@ -43,58 +43,61 @@ describe('Exer', function () {
       assert.equal(exercise.data[2], '5x5@95')
       assert.equal(exercise.tonnage, 5 * 5 * 95 * 3)
     })
+    it('removes roman numerals', function () {
+      const exercise = new Exer('A. Push Press')
+      exercise.addData('i. 5x5@95')
+      assert.lengthOf(exercise.data, 1)
+      assert.equal(exercise.data[0], '5x5@95')
+    })
   })
 })
 
 describe('[Loggen]', function () {
   it('initializes 1 item', function () {
     const log = new Loggen('A. Push Press\n5x5 @95')
-    assert.equal(log.exerList.length, 3)
+    assert.lengthOf(log.exerList, 1)
   })
   it('init 1 item multiple sets', function () {
     const log = new Loggen('A. Push Press\n5x5 @95\n5x5 @95')
     assert.lengthOf(log.exerList, 1)
-    assert.equal(log.exerList[0].data.length, 2)
+    assert.lengthOf(log.exerList[0].data, 2)
   })
-  /*
-        it('init 2 items multiple sets', function () {
-            const L = new Loggen('A. Push Press\n5x5 @95\n5x5 @95\nB. Squat\n3x3 @135\n2x2 @155\n1x1 @185')
-            expect(L.exerList.length, equals(2))
-            expect(L.exerList[0].data.length, equals(2))
-            expect(L.exerList[1].data.length, equals(3))
-        })
-        it('init extra newline whitespace', function () {
-            const L = new Loggen('A. Push Press\n\n\n5x5 @95\n\n5x5 @95\nB. Squat\n3x3 @135\n2x2 @155\n1x1 @185')
-            expect(L.exerList.length, equals(2))
-            expect(L.exerList[0].data.length, equals(2))
-            expect(L.exerList[1].data.length, equals(3))
-        })
-        it('init extra space whitespace', function () {
-            const L = new Loggen('A. Push Press\n   5x5 @95   \n   5x5 @95\nB. Squat\n3x3 @135\n2x2 @155\n1x1 @185')
-            expect(L.exerList.length, equals(2))
-            expect(L.exerList[0].data.length, equals(2))
-            expect(L.exerList[1].data.length, equals(3))
-        })
-        it('init constiable whitespace', function () {
-            const L = new Loggen('A. Power Clean\n\n i. 1x5 @105 \n\n 6x3 @115 \n\n 1x5 @105 \n\n C. Squat\n\n i. 1x5 @175 \n\n 2x2 @195 \n\n 1x5 @195 \n\n 2x5 @175 \n\n 1x5 @195 \n\n 2x3 @175')
-            expect(L.exerList.length, equals(2))
-            expect(L.exerList[0].data.length, equals(3))
-            expect(L.exerList[1].data.length, equals(6))
-        })
-    })
-    */
+  it('init 2 items multiple sets', function () {
+    const L = new Loggen('A. Push Press\n5x5 @95\n5x5 @95\nB. Squat\n3x3 @135\n2x2 @155\n1x1 @185')
+    assert.lengthOf(L.exerList, 2)
+    assert.lengthOf(L.exerList[0].data, 2)
+    assert.lengthOf(L.exerList[1].data, 3)
+  })
+  it('init extra newline whitespace', function () {
+    const L = new Loggen('A. Push Press\n\n\n5x5 @95\n\n5x5 @95\nB. Squat\n3x3 @135\n2x2 @155\n1x1 @185')
+    assert.lengthOf(L.exerList, 2)
+    assert.lengthOf(L.exerList[0].data, 2)
+    assert.lengthOf(L.exerList[1].data, 3)
+  })
+  it('init extra space whitespace', function () {
+    const L = new Loggen('A. Push Press\n   5x5 @95   \n   5x5 @95\nB. Squat\n3x3 @135\n2x2 @155\n1x1 @185')
+    assert.lengthOf(L.exerList, 2)
+    assert.lengthOf(L.exerList[0].data, 2)
+    assert.lengthOf(L.exerList[1].data, 3)
+  })
+  it('init variable whitespace', function () {
+    const L = new Loggen('A. Power Clean\n\n i. 1x5 @105 \n\n 6x3 @115 \n\n 1x5 @105 \n\n C. Squat\n\n i. 1x5 @175 \n\n 2x2 @195 \n\n 1x5 @195 \n\n 2x5 @175 \n\n 1x5 @195 \n\n 2x3 @175')
+    assert.lengthOf(L.exerList, 2)
+    assert.lengthOf(L.exerList[0].data, 3)
+    assert.lengthOf(L.exerList[1].data, 6)
+  })
 })
 
 describe('isExerciseData()', function () {
-  it('accepts names', function () {
+  it.skip('accepts names', function () {
     const name = 'A. Push Press'
     assert.isTrue(Loggen.isExerciseName(name))
   })
-  it('rejects data', function () {
+  it.skip('rejects data', function () {
     const data = '4x5 @95'
     assert.isFalse(Loggen.isExerciseName(data))
   })
-  it('accepts special characters', function () {
+  it.skip('accepts special characters', function () {
     const name = 'A. Push Press \([\{-:!@#%^&*+'
     assert.isTrue(Loggen.isExerciseName(name))
   })
