@@ -28,9 +28,9 @@ describe('_parseSetDataToIntArray', function () {
   })
 })
 
-describe('parseInputStringToMap', function () {
+describe('_parseInputStringToMap', function () {
   it('removes extra whitespace from set data', function () {
-    const result = src.parseInputStringToMap('A1. Squat\n\n\n\n1   x	5 @  225\n\n		2x  3 @255\n   2x2 @285')
+    const result = src._parseInputStringToMap('A1. Squat\n\n\n\n1   x	5 @  225\n\n		2x  3 @255\n   2x2 @285')
     const squatArray = [[1, 5, 225], [2, 3, 255], [2, 2, 285]]
     assert.isTrue('A1. Squat' in result)
     assert.isTrue(arraysAreEqual(result['A1. Squat'][0], squatArray[0]))
@@ -38,7 +38,7 @@ describe('parseInputStringToMap', function () {
     assert.isTrue(arraysAreEqual(result['A1. Squat'][2], squatArray[2]))
   })
   it('parses lots of data', function () {
-    const result = src.parseInputStringToMap('A1. Squat\n1x5 @225\n2x3 @255\n2x2 @285\nB1. Clean\n1x5 @115\n2x3 @135\n2x2 @145')
+    const result = src._parseInputStringToMap('A1. Squat\n1x5 @225\n2x3 @255\n2x2 @285\nB1. Clean\n1x5 @115\n2x3 @135\n2x2 @145')
     const squatArray = [[1, 5, 225], [2, 3, 255], [2, 2, 285]]
     const cleanArray = [[1, 5, 115], [2, 3, 135], [2, 2, 145]]
     assert.isTrue('A1. Squat' in result)
