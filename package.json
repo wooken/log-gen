@@ -1,30 +1,34 @@
 {
-    "name": "mptlog",
-    "version": "1.0.0",
-    "description": "Moreira Performance Training Log Entry Generator",
-    "main": "index.js",
-    "scripts": {
-        "test": "mocha --reporter dot"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/wooken/mptlog.git"
-    },
-    "author": "Kenny Woo",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/wooken/mptlog/issues"
-    },
-    "homepage": "https://github.com/wooken/mptlog#readme",
-    "dependencies": {},
-    "devDependencies": {
-        "chai": "^3.4.1",
-        "mocha": "^2.3.4"
-    },
-    "standard": {
-        "globals": [
-            "describe",
-            "it"
-        ]
-    }
+  "name": "mptlog",
+  "version": "1.0.0",
+  "description": "Moreira Performance Training Log Entry Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter dot",
+    "build": "babel lib -d build -q;browserify build/src.js --s mptlog > build/mptlog.js;rm -f build/src.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wooken/mptlog.git"
+  },
+  "author": "Kenny Woo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wooken/mptlog/issues"
+  },
+  "homepage": "https://github.com/wooken/mptlog#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13",
+    "browserify": "^13.0.0",
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
+    ]
+  }
 }
