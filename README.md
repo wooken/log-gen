@@ -1,1 +1,1 @@
-# MPT Log Generator
+# MPT Log Entry Generator
