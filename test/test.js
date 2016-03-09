@@ -52,20 +52,32 @@ describe('_parseInputStringToMap', function () {
 })
 
 describe('_isExerciseName', function () {
-  it('accepts valid name', function () {
-    assert.isTrue(src._isExerciseName('A. Push Press'))
+  it('accepts if first letter is capital', function () {
+    assert.isTrue(src._isExerciseName('A. dummy name'))
   })
-  it('rejects invalid name', function () {
+  it('rejects if first letter is not capital', function () {
+    assert.isFalse(src._isExerciseName('a. dummy name'))
+  })
+  it('rejects if no letter numbering is given', function () {
     assert.isFalse(src._isExerciseName('1x5 @225'))
+  })
+  it('accepts if letter numbering is followed by optional number', function () {
+    assert.isTrue(src._isExerciseName('A1. dummy name'))
+  })
+  it('ignores leading and trailing whitespace', function () {
+    assert.isTrue(src._isExerciseName('     A. dummy name     '))
   })
 })
 
 describe('_isSetData', function () {
-  it('accepts valid name', function () {
+  it('accepts valid data', function () {
     assert.isFalse(src._isSetData('A. Push Press'))
   })
-  it('rejects invalid name', function () {
+  it('rejects invalid data', function () {
     assert.isTrue(src._isSetData('1x5 @225'))
+  })
+  it('accepts data with whitespaces', function () {
+    assert.isTrue(src._isSetData('    1x5   @   225 '))
   })
 })
 
