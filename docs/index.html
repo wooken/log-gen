@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="headings.css">
+    <title>MPT Log Generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+</head>
+<body>
+    <p> Paste workout data here and hit the Generate button. </p>
+    <div>
+        <textarea class="glow" type="text" id="input" rows="20" cols="50"></textarea>
+    </div>
+    <div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored", id="generateButton" onclick="do_work()">Generate</button>
+    </div>
+    <div>
+        <textarea class="glow" type="text" id="results" rows="20" cols="50" readonly></textarea>
+    </div>
+    <div class="h2">
+        Restrictions
+    </div>
+    <div>
+        <ul>
+            <li>Exercise titles must be numbered with a capital letter followed by a period (number is optional).
+                <ul>
+                    <li>e.g. B1. Front Squat</li>
+                    <li>e.g. C. Push Press</li>
+                </ul>
+            </li>
+            <li>Sets and reps must be listed in the form (with optional spaces)</li>
+                <ul>
+                    <li>e.g. 3x3@135</li>
+                    <li>e.g. 5x5 @115</li>
+                </ul>
+        </ul>
+        <div class="h2">Example</div>
+        <div class="h3">Input:</div>
+        <pre>
+        A1. Push Press
+        2x2 @95
+        3x3 @105
+        5x3 @115
+        4x4 @105
+        B1. Squat
+        3x3 @165
+        1x1 @225
+        1x1 @195
+        1x1 @225
+        1x1 @195
+        1x1 @225
+        3x3 @165
+        C1. Deadlift
+        1x3 @195
+        1x2 @225
+        1x1 @265
+        1x3 @225
+        2x3 @225
+        </pre>
+        <div class="h3">Output:</div>
+        <pre>
+        A1. Push Press
+            2x2 @95
+            3x3 @105
+            5x3 @115
+            4x4 @105
+        B1. Squat
+            3x3 @165
+            1x1 @225
+            1x1 @195
+            1x1 @225
+            1x1 @195
+            1x1 @225
+            3x3 @165
+        C1. Deadlift
+            1x3 @195
+            1x2 @225
+            1x1 @265
+            1x3 @225
+            2x3 @225
+
+        Tonnage:
+        Push Press: 4730
+        Squat: 4035
+        Deadlift: 3325
+        Total: 12090
+        </pre>
+    </div>
+</body>
+<script src="mptlog.js"></script>
+<script>
+var do_work = function () {
+  var inputString = document.getElementById("input").value;
+  document.getElementById("results").value = mptlog.main(inputString);
+}
+</script>
+</html>
